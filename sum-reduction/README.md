@@ -4,9 +4,11 @@ The CUDA code examples demostrate how CUDA Dynamic Parallelism works for simple 
 
 The same algorithm is implemented without using CUDA Dynamic Parallelism, and instead launching kernel recursively in host code: [sumReductionCuda.cu](sumReductionCuda.cu)
 
-As of 12/2024 SYCL does not support functionality similar to CUDA Dynamic Parallelism, the example below show how to port code that uses CUDA Dynamic Parallelism to SYCL, by first moving CUDA Dynamic Parallelism logic to host side recursive kernel launch and then porting to SYCL: [sumReductionSYCL.cpp](sumReductionSYCL.cpp).
+As of 12/2024 SYCL does not support functionality similar to CUDA Dynamic Parallelism, the example below shows how to port code that uses CUDA Dynamic Parallelism to SYCL, by first moving CUDA Dynamic Parallelism logic to host side recursive kernel launch and then porting to SYCL: [sumReductionSYCL.cpp](sumReductionSYCL.cpp).
 
 #### CUDA Dynamic Parallelism --> CUDA --> SYCL
+
+The document [RemoveCDP](RemoveCDP.md) shows how CUDA Dynamic Parallelism is removed by moving the recursive launching of kernel in host code. Once CUDA Dynamic Parallelism si removed, the CUDA code can be ported to SYCL code either using SYCLomatic or porting CUDA APIs manually to SYCL API equivalents.
 
 | Filename | Description | Language |
 | --- | --- | --- |
